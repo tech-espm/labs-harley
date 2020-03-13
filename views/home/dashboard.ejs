@@ -11,9 +11,10 @@
 </div>
 
 <%- contentFor("styles") %>
-<link rel="stylesheet" href="<%- root %>/css/styles.css" />
+<link rel="stylesheet" href="<%- root %>/lib/leaflet/css/leaflet.css" />
+<link rel="stylesheet" href="<%- root %>/css/style.css" />
 
-<%- contentFor("script") %>
+<%- contentFor("scripts") %>
 <script type="text/javascript" src="<%- root %>/lib/leaflet/js/leaflet.js"></script>
 
 <script type="text/javascript">
@@ -61,7 +62,7 @@
 		});*/
 	}
 
-	if (location.href.indexOf("https://") === 0 || location.href.indexOf("localhost") >= 0) {
+	if (location.href.indexOf("https://") === 0) { // || location.href.indexOf("localhost") >= 0) {
 		navigator.geolocation.getCurrentPosition(function (location) {
 			iniciarMapa(location.coords.latitude, location.coords.longitude);
 		});
